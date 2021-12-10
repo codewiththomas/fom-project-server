@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title></title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1 id="apiName"></h1>
+	<p id="apiDescription">[[api.description]]</p>
+
+	<ul>
+		<li><a href="/app" target="_blank">Client-APP</a></li>
+		<li>API-Documentation in Swagger: <a href="swagger" target="_blank">Link</a></li>
+		<li>Decoding your JWT-Token: <a href="jwt.io" target="_blank">jwt.io</a></li>
+		<li>
+			Tools for Testing your API (besides Swagger):
+			<ul>
+				<li><a href="https://de.wikipedia.org/wiki/CURL" target="_blank">cURL</a> (Console)</li>
+				<li><a href="https://www.postman.com/" target="_blank">Postman</a> (Web)</li>
+				<li><a href="https://insomnia.rest/" target="_blank">Insomnia</a> (App)</li>
+				<li><a href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" target="_blank">Rest Client for VS Code</a> (PlugIn)</li>
+			<ul>
+
+		</li>
+	</ul>
+
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js" ></script>
+
+	<script>
+		
+		//this function will load, as soon the document is loaded
+		$(document).ready(function() {
+
+			$.getJSON("/api/info", function (result) {
+				$("#apiName").text(result.apiName);
+				$("#apiDescription").text(result.apiDescription);
+			});
+
+		});
+
+	</script>
+
+</body>
+
+</html>
